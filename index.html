@@ -1032,7 +1032,7 @@ body:not(.editing) #work .pmore:not(.isopen):hover i::before{border-color:var(--
 
 /* breathing room + calmer project titles */
 .wrap{max-width:1640px!important;padding-inline:clamp(20px,5vw,60px)!important}
-@media (min-width:1000px){.wrap{padding-inline:60px!important}}
+@media (min-width:1000px){.wrap{max-width:none!important;padding-inline:max(60px,calc((100vw - 1240px) / 2),14vw)!important}}
 #work .ph h2{font-size:clamp(34px,4.2vw,60px)!important}
 
 @media (min-width:701px){#about>div:first-child,#about2>div:first-child{justify-self:end;width:min(100%,380px)}#about .ph-photo,#about2 .ph-photo{margin-left:auto}}
@@ -1049,6 +1049,12 @@ footer.contact{margin-top:0}
 @media (max-width:700px){#totop2{display:inline-flex;align-items:center;gap:8px;margin-top:8px;font:500 11.5px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--pop);text-decoration:none;padding:12px 0}
 #totop2 i{width:8px;height:8px;border-left:1.5px solid currentColor;border-top:1.5px solid currentColor;transform:rotate(45deg) translateY(2px)}}
 html.tallvp #totop{display:none!important}
+
+/* index: even 3-column grid like a gallery wall */
+@media (min-width:701px){#fan{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:44px 36px!important}
+#fan>.it{grid-column:auto!important;width:auto!important;max-width:none!important;flex:none!important}
+#fan .th{aspect-ratio:1/1!important;height:auto!important;display:block;overflow:hidden}#fan .thw{aspect-ratio:auto!important;height:auto!important}#fan .th img{height:100%!important;aspect-ratio:auto!important}#fan .nm{margin-top:14px!important}
+#fan .th img{width:100%;object-fit:cover}}
 </style>
 </head>
 <body>
