@@ -1705,6 +1705,7 @@ function openLb(el,list){const sec=el.closest('.project');L=list||[...sec.queryS
 ['about','about2'].forEach(id=>$(id).addEventListener('click',e=>{if(editing)return;const box=e.target.closest('.ph-photo');if(!box||e.target.closest('a,button'))return;const A=S.about,st=S.theme.aboutStyle||'both';
   const arr=(box.querySelector('.xfl')&&getComputedStyle(box.querySelector('.xfl')).display!=='none')?A.slide:[{img:A.photo},...A.extra];const items=arr.filter(x=>x&&x.img).map(x=>({n:src(x.img),c:'About'}));if(!items.length)return;
   let i=0;const on=box.querySelector('.xfl img.on');if(on){i=[...on.parentNode.children].indexOf(on)}else if(box.dataset.ax!=null){i=+box.dataset.ax+1}
+  const sl=box.querySelector('.xfl')&&getComputedStyle(box.querySelector('.xfl')).display!=='none'&&items.length>1;if(sl){const im=arr.filter(x=>x&&x.img);const ord=im.slice(Math.max(0,i)).concat(im.slice(0,Math.max(0,i)));openLb(box,[{n:src(ord[0].img),c:'About',seq:ord.map(x=>x.img).join(',')}]);k=0;show();return}
   openLb(box,items);k=Math.max(0,i);show()}));
 $('work').addEventListener('click',e=>{if(editing)return;const el=e.target.closest('.ex[data-src]');if(el)openLb(el)});
 $('work').addEventListener('keydown',e=>{if(editing)return;const el=e.target.closest('.ex[data-src]');if(el&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openLb(el)}});
